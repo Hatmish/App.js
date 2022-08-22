@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import MainClientPage from './components/MainClientPage';
+import _ClientsTable_Header from "./components/_ClientsTable_Header";
+import Vehicles from './components/Vehicles';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+
+    return (
+        <div className="App">
+
+        <Router>
+            <Routes>
+                <Route path ="/clients" element={<MainClientPage/>} />
+                <Route path ="/clients/:companyId" element={<Vehicles/>} />
+                <Route path ="/header" element={<_ClientsTable_Header />} />
+
+            </Routes>
+        </Router>
+        </div>
+    );
+}
 export default App;
+
+
